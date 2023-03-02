@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Resources\UserResource;
-use App\Http\Services\UserService;
-use App\Models\User;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Services\UserService;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
     private $params;
 
-    public function __construct()
+    public function __construct(UserService $_service)
     {
-        $this->params = new UserService();
+        $this->params = $_service;
     }
 
     public function index()
     {
         return Inertia::render('Users/Index', [
-            'users' => $this->params->User(Request::input('search')),
+            'users' => $this->params->Users(Request::input('search')),
             'filters' => Request::only(['search']),
         ]);
     }

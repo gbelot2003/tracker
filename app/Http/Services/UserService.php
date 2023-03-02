@@ -8,10 +8,19 @@ use App\Http\Resources\UserResource;
 
 class UserService
 {
-    public function User($request)
+    private $userResource;
+    private $user_model;
+
+    public function __construct(User $_user)
     {
-        $users = UserResource::collection(
-            User::query()
+        $this->user_model = $_user;
+        $this->userResource = new UserResource($this->user_model);
+    }
+
+    public function Users($request)
+    {
+        $users = $this->userResource::collection(
+            $this->user_model::query()
                 ->when($request, function ($query, $search) {
                     $query->where('name', 'LIKE', "%{$search}%");
                     $query->orWhere('email', 'LIKE', "%{$search}%");
@@ -19,7 +28,6 @@ class UserService
                 ->orderBy('id', 'DESC')
                 ->paginate(15)
                 ->withQueryString()
-
         );
 
         return $users;

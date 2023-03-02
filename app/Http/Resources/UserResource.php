@@ -6,6 +6,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
 {
+
+
+    public function __construct($resource)
+    {
+        parent::__construct($resource);
+        $this->resource = $resource;
+    }
+
     /**
      * Transform the resource into an array.
      *
