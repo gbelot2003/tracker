@@ -49,7 +49,7 @@ const logout = () => {
                 <Aside></Aside>
             </div>
 
-            <div class="column is-half">
+            <div class="column">
                 <main>
                     <slot />
                 </main>

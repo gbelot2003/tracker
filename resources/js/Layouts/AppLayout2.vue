@@ -42,9 +42,6 @@ const logout = () => {
             <Dropbox></Dropbox>
         </div>
 
-        <div class="notification is-primary">
-            This container is <strong>centered</strong> on desktop and larger viewports.
-        </div>
 
         <Breadcrumbs></Breadcrumbs>
 
@@ -83,3 +80,9 @@ const logout = () => {
         </div>
     </footer>
 </template>
+
+<style>
+html {
+    padding-top: 2rem !important;
+}
+</style>
