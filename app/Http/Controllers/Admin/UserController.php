@@ -9,17 +9,17 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
-    private $params;
+    private $service;
 
     public function __construct(UserService $_service)
     {
-        $this->params = $_service;
+        $this->service = $_service;
     }
 
     public function index()
     {
         return Inertia::render('Users/Index', [
-            'users' => $this->params->Users(Request::input('search')),
+            'users' => $this->service->Users(Request::input('search')),
             'filters' => Request::only(['search']),
         ]);
     }
