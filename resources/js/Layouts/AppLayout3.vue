@@ -10,8 +10,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import Aside from '../Components2/Aside.vue';
 import Block from '../Components2/Block.vue'
 import Dropbox from '../Components2/Dropbox.vue'
-import Breadcrumbs from '../Components2/Breadcrumbs.vue'
-
+import Content from '../Components2/Content.vue'
 defineProps({
     title: String,
 });
@@ -41,12 +40,9 @@ const logout = () => {
         <div>
             <Dropbox></Dropbox>
         </div>
-
         <div class="notification is-primary">
             This container is <strong>centered</strong> on desktop and larger viewports.
         </div>
-
-        <Breadcrumbs></Breadcrumbs>
 
         <div class="columns">
             <div class="column is-one-fifth">
@@ -57,15 +53,6 @@ const logout = () => {
                 <main>
                     <slot />
                 </main>
-            </div>
-
-            <div class="column">
-
-                <Block></Block>
-                <Block></Block>
-                <Block></Block>
-                <Block></Block>
-                <Block></Block>
             </div>
         </div>
         <div>

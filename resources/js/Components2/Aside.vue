@@ -1,15 +1,16 @@
 <script setup>
+import { Link } from '@inertiajs/vue3'
 
 </script>
 
 <template>
-    <aside class="menu">
+    <aside class="menu grey-lighter">
         <p class="menu-label">
             General
         </p>
         <ul class="menu-list">
-            <li><a>Dashboard</a></li>
-            <li><a>Customers</a></li>
+            <li><Link class="is-active" href="/dashboard">Dashboard</Link></li>
+            <li><Link class="" href="/user/profile">Profile</Link></li>
         </ul>
         <p class="menu-label">
             Administration
@@ -17,7 +18,7 @@
         <ul class="menu-list">
             <li><a>Team Settings</a></li>
             <li>
-                <a class="is-active">Manage Your Team</a>
+                <a class="">Manage Your Team</a>
                 <ul>
                     <li><a>Members</a></li>
                     <li><a>Plugins</a></li>
