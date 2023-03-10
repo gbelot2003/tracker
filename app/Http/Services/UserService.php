@@ -26,7 +26,7 @@ class UserService
                     $query->orWhere('email', 'LIKE', "%{$search}%");
                 })
                 ->orderBy('id', 'DESC')
-                ->paginate(15)
+                ->paginate(10)
                 ->withQueryString()
         );
 
