@@ -99,26 +99,26 @@ const clearPhotoFileInput = () => {
                 <InputLabel for="photo" value="Photo" />
 
                 <!-- Current Profile Photo -->
-                <div v-show="! photoPreview" class="mt-2">
+                <div v-show="! photoPreview" class="">
                     <img :src="user.profile_photo_url" :alt="user.name" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
-                <div v-show="photoPreview" class="mt-2">
+                <div v-show="photoPreview" class="button is-info">
                     <span
                         class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                         :style="'background-image: url(\'' + photoPreview + '\');'"
                     />
                 </div>
 
-                <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
+                <SecondaryButton class="button is-info" type="button" @click.prevent="selectNewPhoto">
                     Select A New Photo
                 </SecondaryButton>
 
                 <SecondaryButton
                     v-if="user.profile_photo_path"
                     type="button"
-                    class="mt-2"
+                    class="button"
                     @click.prevent="deletePhoto"
                 >
                     Remove Photo
@@ -128,13 +128,13 @@ const clearPhotoFileInput = () => {
             </div>
 
             <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="">
                 <InputLabel for="name" value="Name" />
                 <TextInput
                     id="name"
                     v-model="form.name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="input"
                     autocomplete="name"
                 />
                 <InputError :message="form.errors.name" class="mt-2" />
@@ -147,7 +147,7 @@ const clearPhotoFileInput = () => {
                     id="email"
                     v-model="form.email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="input"
                     autocomplete="username"
                 />
                 <InputError :message="form.errors.email" class="mt-2" />
@@ -160,7 +160,7 @@ const clearPhotoFileInput = () => {
                             :href="route('verification.send')"
                             method="post"
                             as="button"
-                            class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            class="button"
                             @click.prevent="sendEmailVerification"
                         >
                             Click here to re-send the verification email.
@@ -179,7 +179,7 @@ const clearPhotoFileInput = () => {
                 Saved.
             </ActionMessage>
 
-            <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton class="button is-info" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Save
             </PrimaryButton>
         </template>
